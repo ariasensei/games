@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aria's Learning Hub - Educational Games</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Fredoka', sans-serif;
+        }
+        
+        .game-card {
+            transition: all 0.3s ease;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .pulse-slow {
+            animation: pulse 2s infinite;
+        }
+        
+        .game-modal {
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-purple-400 via-pink-400 to-blue-400 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white/90 backdrop-blur-sm shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                        <span class="text-white text-2xl">💖</span>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-800">Aria's Learning Hub</h1>
+                        <p class="text-sm text-gray-600">Educational Games for Kids & Teens</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <nav class="flex space-x-6">
+                        <a href="#games" class="text-gray-700 hover:text-purple-600 font-medium">Games</a>
+                        <a href="#about" class="text-gray-700 hover:text-purple-600 font-medium">About</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-16 px-6">
+        <div class="container mx-auto text-center">
+            <div class="floating mb-8">
+                <div class="text-8xl mb-4">🎮</div>
+            </div>
+            <h2 class="text-5xl font-bold text-white mb-6 drop-shadow-lg">
+                Learn Through Play!
+            </h2>
+            <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                Discover amazing educational games that make learning fun and engaging for kids and teens
+            </p>
+            <button onclick="scrollToGames()" class="bg-white text-purple-600 px-8 py-4 rounded-full font-bold text-lg hover:bg-purple-50 transition-all duration-300 shadow-lg hover:shadow-xl">
+                Start Playing! 🚀
+            </button>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="py-16 px-6">
+        <div class="container mx-auto">
+            <h3 class="text-4xl font-bold text-white text-center mb-12">Choose Your Adventure</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Math Quiz Game -->
+                <div class="game-card bg-white rounded-2xl p-6 shadow-xl">
+                    <div class="text-6xl text-center mb-4">🧮</div>
+                    <h4 class="text-2xl font-bold text-gray-800 mb-3">Math Challenge</h4>
+                    <p class="text-gray-600 mb-4">Test your math skills with fun arithmetic problems!</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Ages 8-16</span>
+                        <span class="text-yellow-500">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <button onclick="openGame('math')" class="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white py-3 rounded-xl font-bold hover:from-green-600 hover:to-blue-600 transition-all duration-300">
+                        Play Now!
+                    </button>
+                </div>
+
+                <!-- Word Scramble Game -->
+                <div class="game-card bg-white rounded-2xl p-6 shadow-xl">
+                    <div class="text-6xl text-center mb-4">📝</div>
+                    <h4 class="text-2xl font-bold text-gray-800 mb-3">Word Scramble</h4>
+                    <p class="text-gray-600 mb-4">Unscramble letters to form words and boost your vocabulary!</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">Ages 10-18</span>
+                        <span class="text-yellow-500">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <button onclick="openGame('word')" class="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 rounded-xl font-bold hover:from-purple-600 hover:to-pink-600 transition-all duration-300">
+                        Play Now!
+                    </button>
+                </div>
+
+                <!-- Memory Game -->
+                <div class="game-card bg-white rounded-2xl p-6 shadow-xl">
+                    <div class="text-6xl text-center mb-4">🧠</div>
+                    <h4 class="text-2xl font-bold text-gray-800 mb-3">Memory Master</h4>
+                    <p class="text-gray-600 mb-4">Match pairs of cards and improve your memory skills!</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Ages 6-14</span>
+                        <span class="text-yellow-500">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <button onclick="openGame('memory')" class="w-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-3 rounded-xl font-bold hover:from-blue-600 hover:to-cyan-600 transition-all duration-300">
+                        Play Now!
+                    </button>
+                </div>
+
+                <!-- Geography Quiz -->
+                <div class="game-card bg-white rounded-2xl p-6 shadow-xl">
+                    <div class="text-6xl text-center mb-4">🌍</div>
+                    <h4 class="text-2xl font-bold text-gray-800 mb-3">Geography Explorer</h4>
+                    <p class="text-gray-600 mb-4">Discover countries, capitals, and flags around the world!</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium">Ages 12-18</span>
+                        <span class="text-yellow-500">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <button onclick="openGame('geography')" class="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white py-3 rounded-xl font-bold hover:from-orange-600 hover:to-red-600 transition-all duration-300">
+                        Play Now!
+                    </button>
+                </div>
+
+                <!-- Science Quiz -->
+                <div class="game-card bg-white rounded-2xl p-6 shadow-xl">
+                    <div class="text-6xl text-center mb-4">🔬</div>
+                    <h4 class="text-2xl font-bold text-gray-800 mb-3">Science Lab</h4>
+                    <p class="text-gray-600 mb-4">Explore fascinating science facts and experiments!</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-medium">Ages 10-16</span>
+                        <span class="text-yellow-500">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <button onclick="openGame('science')" class="w-full bg-gradient-to-r from-teal-500 to-green-500 text-white py-3 rounded-xl font-bold hover:from-teal-600 hover:to-green-600 transition-all duration-300">
+                        Play Now!
+                    </button>
+                </div>
+
+                <!-- Typing Speed Game -->
+                <div class="game-card bg-white rounded-2xl p-6 shadow-xl">
+                    <div class="text-6xl text-center mb-4">⌨️</div>
+                    <h4 class="text-2xl font-bold text-gray-800 mb-3">Typing Racer</h4>
+                    <p class="text-gray-600 mb-4">Improve your typing speed and accuracy with fun challenges!</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">Ages 8-18</span>
+                        <span class="text-yellow-500">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <button onclick="openGame('typing')" class="w-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white py-3 rounded-xl font-bold hover:from-indigo-600 hover:to-purple-600 transition-all duration-300">
+                        Play Now!
+                    </button>
+                </div>
+
+                <!-- Color Quiz Game -->
+                <div class="game-card bg-white rounded-2xl p-6 shadow-xl">
+                    <div class="text-6xl text-center mb-4">🎨</div>
+                    <h4 class="text-2xl font-bold text-gray-800 mb-3">Color Master</h4>
+                    <p class="text-gray-600 mb-4">Test your color knowledge and learn about the rainbow!</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm font-medium">Ages 5-12</span>
+                        <span class="text-yellow-500">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <button onclick="openGame('color')" class="w-full bg-gradient-to-r from-pink-500 to-rose-500 text-white py-3 rounded-xl font-bold hover:from-pink-600 hover:to-rose-600 transition-all duration-300">
+                        Play Now!
+                    </button>
+                </div>
+
+                <!-- Number Pattern Game -->
+                <div class="game-card bg-white rounded-2xl p-6 shadow-xl">
+                    <div class="text-6xl text-center mb-4">🔢</div>
+                    <h4 class="text-2xl font-bold text-gray-800 mb-3">Pattern Detective</h4>
+                    <p class="text-gray-600 mb-4">Find the missing numbers in fun number sequences!</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">Ages 7-14</span>
+                        <span class="text-yellow-500">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <button onclick="openGame('pattern')" class="w-full bg-gradient-to-r from-yellow-500 to-orange-500 text-white py-3 rounded-xl font-bold hover:from-yellow-600 hover:to-orange-600 transition-all duration-300">
+                        Play Now!
+                    </button>
+                </div>
+
+                <!-- Animal Quiz Game -->
+                <div class="game-card bg-white rounded-2xl p-6 shadow-xl">
+                    <div class="text-6xl text-center mb-4">🦁</div>
+                    <h4 class="text-2xl font-bold text-gray-800 mb-3">Animal Kingdom</h4>
+                    <p class="text-gray-600 mb-4">Discover amazing facts about animals from around the world!</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm font-medium">Ages 6-16</span>
+                        <span class="text-yellow-500">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <button onclick="openGame('animal')" class="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white py-3 rounded-xl font-bold hover:from-emerald-600 hover:to-teal-600 transition-all duration-300">
+                        Play Now!
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Modal -->
+    <div id="gameModal" class="fixed inset-0 bg-black/50 game-modal hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 id="gameTitle" class="text-3xl font-bold text-gray-800"></h3>
+                    <button onclick="closeGame()" class="text-gray-500 hover:text-gray-700 text-2xl">✕</button>
+                </div>
+                <div id="gameContent" class="min-h-[400px]">
+                    <!-- Game content will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- More Games Section -->
+    <section class="py-16 px-6 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <h3 class="text-4xl font-bold text-white mb-4">Explore More Educational Games!</h3>
+                <p class="text-xl text-white/90 max-w-3xl mx-auto">
+                    Discover amazing free educational games from around the web. Click on any link to explore new learning adventures!
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Math Games -->
+                <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-3">🔢</div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Math Games</h4>
+                    </div>
+                    <div class="space-y-3">
+                        <a href="https://www.coolmathgames.com" target="_blank" class="block bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg text-center transition-all duration-300">Cool Math Games</a>
+                        <a href="https://www.mathplayground.com" target="_blank" class="block bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg text-center transition-all duration-300">Math Playground</a>
+                        <a href="https://www.prodigygame.com" target="_blank" class="block bg-purple-500 hover:bg-purple-600 text-white py-2 px-4 rounded-lg text-center transition-all duration-300">Prodigy Math</a>
+                        <a href="https://www.khanacademy.org/math" target="_blank" class="block bg-teal-500 hover:bg-teal-600 text-white py-2 px-4 rounded-lg text-center transition-all duration-300">Khan Academy Math</a>
+                    </div>
+                </div>
+
+                <!-- Language Arts -->
+                <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-3">📚</div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Language & Reading</h4>
+                    </div>
+                    <div class="space-y-3">
+                        <a href="https://www.starfall.com" target="_blank" class="block bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg text-center transition-all duration-300">Starfall</a>
+                        <a href="https://www.abcya.com" target="_blank" class="block bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg text-center transition-all duration-300">ABCya!</a>
+                        <a href="https://www.spellingcity.com" target="_blank" class="block bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-lg text-center transition-all duration-300">Spelling City</a>
+                        <a href="https://www.readingeggs.com" target="_blank" class="block bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-lg text-center transition-all duration-300">Reading Eggs</a>
+                    </div>
+                </div>
+
+                <!-- Science Games -->
+                <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-3">🔬</div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Science & Discovery</h4>
+                    </div>
+                    <div class="space-y-3">
+                        <a href="https://www.nasa.gov/audience/forkids/kidsclub/flash/" target="_blank" class="block bg-indigo-500 hover:bg-indigo-600 text-white py-2 px-4 rounded-lg text-center transition-all duration-300">NASA Kids Club</a>
+                        <a href="https://www.brainpop.com" target="_blank" class="block bg-cyan-500 hover:bg-cyan-600 text-white py-2 px-4 rounded-lg text-center transition-all duration-300">BrainPOP</a>
+                        <a href="https://www.nationalgeographic.com/kids" target="_blank" class="block bg-emerald-500 hover:bg-emerald-600 text-white py-2 px-4 rounded-lg text-center transition-all duration-300">Nat Geo Kids</a>
+                        <a href="https://www.sciencekids.co.nz/games.html" target="_blank" class="block bg-lime-500 hover:bg-lime-600 text-white py-2 px-4 rounded-lg text-center transition-all duration-300">Science Kids</a>
+                    </div>
+                </div>
+
+                <!-- Geography & History -->
+                <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-3">🌍</div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Geography & History</h4>
+                    </div>
+                    <div class="space-y-3">
+                        <a href="https://world-geography-games.com" target="_blank" class="block bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg text-center transition-all duration-300">World Geography Games</a>
+                        <a href="https://www.sheppardsoftware.com/Geography.htm" target="_blank" class="block bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg text-center transition-all duration-300">Sheppard Software</a>
+                        <a href="https://www.seterra.com" target="_blank" class="block bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg text-center transition-all duration-300">Seterra Geography</a>
+                        <a href="https://www.bbc.co.uk/bitesize/subjects/zk26n39" target="_blank" class="block bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg text-center transition-all duration-300">BBC Bitesize History</a>
+                    </div>
+                </div>
+
+                <!-- Coding & Logic -->
+                <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-3">💻</div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">Coding & Logic</h4>
+                    </div>
+                    <div class="space-y-3">
+                        <a href="https://scratch.mit.edu" target="_blank" class="block bg-orange-600 hover:bg-orange-700 text-white py-2 px-4 rounded-lg text-center transition-all duration-300">Scratch</a>
+                        <a href="https://code.org" target="_blank" class="block bg-teal-600 hover:bg-teal-700 text-white py-2 px-4 rounded-lg text-center transition-all duration-300">Code.org</a>
+                        <a href="https://www.codecademy.com/learn" target="_blank" class="block bg-pink-600 hover:bg-pink-700 text-white py-2 px-4 rounded-lg text-center transition-all duration-300">Codecademy</a>
+                        <a href="https://www.lightbot.com" target="_blank" class="block bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-lg text-center transition-all duration-300">Lightbot</a>
+                    </div>
+                </div>
+
+                <!-- General Learning -->
+                <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl">
+                    <div class="text-center mb-4">
+                        <div class="text-4xl mb-3">🎓</div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">All Subjects</h4>
+                    </div>
+                    <div class="space-y-3">
+                        <a href="https://www.funbrain.com" target="_blank" class="block bg-cyan-600 hover:bg-cyan-700 text-white py-2 px-4 rounded-lg text-center transition-all duration-300">Funbrain</a>
+                        <a href="https://www.education.com/games" target="_blank" class="block bg-emerald-600 hover:bg-emerald-700 text-white py-2 px-4 rounded-lg text-center transition-all duration-300">Education.com</a>
+                        <a href="https://www.ixl.com" target="_blank" class="block bg-lime-600 hover:bg-lime-700 text-white py-2 px-4 rounded-lg text-center transition-all duration-300">IXL Learning</a>
+                        <a href="https://www.pbskids.org/games" target="_blank" class="block bg-yellow-600 hover:bg-yellow-700 text-white py-2 px-4 rounded-lg text-center transition-all duration-300">PBS Kids Games</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto">
+                    <h4 class="text-2xl font-bold text-white mb-4">🌟 Pro Tips for Parents & Teachers</h4>
+                    <div class="text-left text-white/90 space-y-2">
+                        <p>• Always supervise young children while browsing these sites</p>
+                        <p>• Set time limits for screen-based learning activities</p>
+                        <p>• Encourage kids to explain what they learned after playing</p>
+                        <p>• Mix digital games with hands-on learning activities</p>
+                        <p>• Check if sites require registration before letting kids explore</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 px-6 bg-white/10 backdrop-blur-sm">
+        <div class="container mx-auto text-center">
+            <h3 class="text-4xl font-bold text-white mb-8">About Aria's Learning Hub</h3>
+            <div class="max-w-3xl mx-auto">
+                <p class="text-xl text-white/90 mb-8">
+                    We believe learning should be fun, engaging, and accessible to everyone. Our educational games are designed to help kids and teens develop essential skills while having a blast!
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <div class="text-center">
+                        <div class="text-4xl mb-3">🎯</div>
+                        <h4 class="text-xl font-bold text-white mb-2">Skill Building</h4>
+                        <p class="text-white/80">Develop math, language, and cognitive skills</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-3">🏆</div>
+                        <h4 class="text-xl font-bold text-white mb-2">Achievement</h4>
+                        <p class="text-white/80">Track progress and celebrate success</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-3">👥</div>
+                        <h4 class="text-xl font-bold text-white mb-2">Community</h4>
+                        <p class="text-white/80">Learn together and share experiences</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 px-6">
+        <div class="container mx-auto text-center">
+            <div class="mb-4">
+                <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-white text-3xl">💖</span>
+                </div>
+                <h4 class="text-2xl font-bold mb-2">Aria's Learning Hub</h4>
+            </div>
+            <div class="border-t border-gray-700 pt-6">
+                <p class="text-gray-400 mb-2">Made by Aria Teaching since 2014</p>
+                <p class="text-gray-400">
+                    Website: <a href="https://ariasensei.github.io/teacheraria/" class="text-purple-400 hover:text-purple-300 underline" target="_blank">ariasensei.github.io/teacheraria</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Game data and logic
+        const games = {
+            math: {
+                title: "Math Challenge",
+                currentQuestion: 0,
+                score: 0,
+                questions: []
+            },
+            word: {
+                title: "Word Scramble",
+                currentWord: 0,
+                score: 0,
+                words: ['EDUCATION', 'LEARNING', 'STUDENT', 'TEACHER', 'KNOWLEDGE', 'SCIENCE', 'HISTORY', 'GEOGRAPHY']
+            },
+            memory: {
+                title: "Memory Master",
+                flipped: [],
+                matched: [],
+                moves: 0,
+                cards: ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼']
+            },
+            geography: {
+                title: "Geography Explorer",
+                currentQuestion: 0,
+                score: 0,
+                questions: [
+                    {question: "What is the capital of France?", options: ["London", "Berlin", "Paris", "Madrid"], correct: 2},
+                    {question: "Which continent is Brazil in?", options: ["Asia", "South America", "Africa", "Europe"], correct: 1},
+                    {question: "What is the largest ocean?", options: ["Atlantic", "Indian", "Arctic", "Pacific"], correct: 3},
+                    {question: "Which country has the most time zones?", options: ["Russia", "USA", "China", "Canada"], correct: 0}
+                ]
+            },
+            science: {
+                title: "Science Lab",
+                currentQuestion: 0,
+                score: 0,
+                questions: [
+                    {question: "What gas do plants absorb from the atmosphere?", options: ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"], correct: 1},
+                    {question: "How many bones are in an adult human body?", options: ["206", "208", "210", "204"], correct: 0},
+                    {question: "What is the chemical symbol for gold?", options: ["Go", "Gd", "Au", "Ag"], correct: 2},
+                    {question: "Which planet is closest to the Sun?", options: ["Venus", "Mercury", "Earth", "Mars"], correct: 1}
+                ]
+            },
+            typing: {
+                title: "Typing Racer",
+                currentText: 0,
+                wpm: 0,
+                accuracy: 100,
+                texts: [
+                    "The quick brown fox jumps over the lazy dog.",
+                    "Learning is a treasure that will follow its owner everywhere.",
+                    "Education is the most powerful weapon which you can use to change the world."
+                ]
+            },
+            color: {
+                title: "Color Master",
+                currentQuestion: 0,
+                score: 0,
+                questions: [
+                    {question: "What color do you get when you mix red and yellow?", options: ["Purple", "Orange", "Green", "Pink"], correct: 1},
+                    {question: "What are the primary colors?", options: ["Red, Blue, Yellow", "Red, Green, Blue", "Blue, Yellow, Green", "Red, Orange, Yellow"], correct: 0},
+                    {question: "What color do you get when you mix blue and yellow?", options: ["Purple", "Orange", "Green", "Pink"], correct: 2},
+                    {question: "Which color is NOT in a rainbow?", options: ["Red", "Pink", "Blue", "Yellow"], correct: 1},
+                    {question: "What color do you get when you mix all colors of light?", options: ["Black", "White", "Gray", "Brown"], correct: 1}
+                ]
+            },
+            pattern: {
+                title: "Pattern Detective",
+                currentQuestion: 0,
+                score: 0,
+                questions: [
+                    {question: "What comes next? 2, 4, 6, 8, ?", options: ["9", "10", "11", "12"], correct: 1},
+                    {question: "What comes next? 1, 3, 5, 7, ?", options: ["8", "9", "10", "11"], correct: 1},
+                    {question: "What comes next? 10, 20, 30, 40, ?", options: ["45", "50", "55", "60"], correct: 1},
+                    {question: "What comes next? 1, 4, 7, 10, ?", options: ["12", "13", "14", "15"], correct: 1},
+                    {question: "What comes next? 100, 90, 80, 70, ?", options: ["50", "60", "65", "55"], correct: 1}
+                ]
+            },
+            animal: {
+                title: "Animal Kingdom",
+                currentQuestion: 0,
+                score: 0,
+                questions: [
+                    {question: "Which animal is known as the 'King of the Jungle'?", options: ["Tiger", "Lion", "Elephant", "Leopard"], correct: 1},
+                    {question: "What is the largest mammal in the world?", options: ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"], correct: 1},
+                    {question: "Which bird cannot fly?", options: ["Eagle", "Sparrow", "Penguin", "Robin"], correct: 2},
+                    {question: "How many legs does a spider have?", options: ["6", "8", "10", "12"], correct: 1},
+                    {question: "Which animal is known for changing colors?", options: ["Chameleon", "Frog", "Snake", "Lizard"], correct: 0}
+                ]
+            }
+        };
+
+        function scrollToGames() {
+            document.getElementById('games').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function openGame(gameType) {
+            const modal = document.getElementById('gameModal');
+            const title = document.getElementById('gameTitle');
+            const content = document.getElementById('gameContent');
+            
+            title.textContent = games[gameType].title;
+            modal.classList.remove('hidden');
+            
+            switch(gameType) {
+                case 'math':
+                    loadMathGame();
+                    break;
+                case 'word':
+                    loadWordGame();
+                    break;
+                case 'memory':
+                    loadMemoryGame();
+                    break;
+                case 'geography':
+                    loadGeographyGame();
+                    break;
+                case 'science':
+                    loadScienceGame();
+                    break;
+                case 'typing':
+                    loadTypingGame();
+                    break;
+                case 'color':
+                    loadColorGame();
+                    break;
+                case 'pattern':
+                    loadPatternGame();
+                    break;
+                case 'animal':
+                    loadAnimalGame();
+                    break;
+            }
+        }
+
+        function closeGame() {
+            document.getElementById('gameModal').classList.add('hidden');
+        }
+
+        function loadMathGame() {
+            games.math.currentQuestion = 0;
+            games.math.score = 0;
+            games.math.questions = generateMathQuestions();
+            
+            const content = document.getElementById('gameContent');
+            content.innerHTML = `
+                <div class="text-center">
+                    <div class="mb-6">
+                        <div class="text-4xl mb-4">🧮</div>
+                        <h4 class="text-2xl font-bold mb-2">Question ${games.math.currentQuestion + 1} of 5</h4>
+                        <p class="text-lg text-gray-600">Score: ${games.math.score}/5</p>
+                    </div>
+                    <div id="mathQuestion" class="mb-8">
+                        <p class="text-3xl font-bold mb-6">${games.math.questions[0].question}</p>
+                        <div class="grid grid-cols-2 gap-4 max-w-md mx-auto">
+                            ${games.math.questions[0].options.map((option, index) => 
+                                `<button onclick="checkMathAnswer(${index})" class="bg-blue-500 hover:bg-blue-600 text-white py-3 px-6 rounded-xl font-bold text-xl transition-all duration-300 cursor-pointer">${option}</button>`
+                            ).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function generateMathQuestions() {
+            const questions = [];
+            for(let i = 0; i < 5; i++) {
+                const a = Math.floor(Math.random() * 20) + 1;
+                const b = Math.floor(Math.random() * 20) + 1;
+                const operation = Math.random() > 0.5 ? '+' : '-';
+                const answer = operation === '+' ? a + b : Math.max(1, a - b);
+                
+                const options = [answer];
+                while(options.length < 4) {
+                    const wrong = answer + Math.floor(Math.random() * 10) - 5;
+                    if(!options.includes(wrong) && wrong > 0) {
+                        options.push(wrong);
+                    }
+                }
+                
+                // Shuffle options and find correct index after shuffling
+                const shuffledOptions = options.sort(() => Math.random() - 0.5);
+                const correctIndex = shuffledOptions.indexOf(answer);
+                
+                questions.push({
+                    question: `${a} ${operation} ${b} = ?`,
+                    options: shuffledOptions,
+                    correct: correctIndex
+                });
+            }
+            return questions;
+        }
+
+        function checkMathAnswer(selected) {
+            const correct = games.math.questions[games.math.currentQuestion].correct;
+            const isCorrect = selected === correct;
+            
+            // Show feedback
+            const buttons = document.querySelectorAll('#gameContent button');
+            buttons.forEach((btn, index) => {
+                if(index === selected) {
+                    btn.className = isCorrect ? 
+                        'bg-green-500 text-white py-3 px-6 rounded-xl font-bold text-xl transition-all duration-300 cursor-pointer' :
+                        'bg-red-500 text-white py-3 px-6 rounded-xl font-bold text-xl transition-all duration-300 cursor-pointer';
+                } else if(index === correct) {
+                    btn.className = 'bg-green-500 text-white py-3 px-6 rounded-xl font-bold text-xl transition-all duration-300 cursor-pointer';
+                }
+                btn.disabled = true;
+            });
+            
+            if(isCorrect) {
+                games.math.score++;
+            }
+            
+            games.math.currentQuestion++;
+            
+            setTimeout(() => {
+                if(games.math.currentQuestion < 5) {
+                    const content = document.getElementById('gameContent');
+                    content.innerHTML = `
+                        <div class="text-center">
+                            <div class="mb-6">
+                                <div class="text-4xl mb-4">🧮</div>
+                                <h4 class="text-2xl font-bold mb-2">Question ${games.math.currentQuestion + 1} of 5</h4>
+                                <p class="text-lg text-gray-600">Score: ${games.math.score}/5</p>
+                            </div>
+                            <div id="mathQuestion" class="mb-8">
+                                <p class="text-3xl font-bold mb-6">${games.math.questions[games.math.currentQuestion].question}</p>
+                                <div class="grid grid-cols-2 gap-4 max-w-md mx-auto">
+                                    ${games.math.questions[games.math.currentQuestion].options.map((option, index) => 
+                                        `<button onclick="checkMathAnswer(${index})" class="bg-blue-500 hover:bg-blue-600 text-white py-3 px-6 rounded-xl font-bold text-xl transition-all duration-300 cursor-pointer">${option}</button>`
+                                    ).join('')}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    showMathResults();
+                }
+            }, 1500);
+        }
+
+        function showMathResults() {
+            const content = document.getElementById('gameContent');
+            const percentage = (games.math.score / 5) * 100;
+            content.innerHTML = `
+                <div class="text-center">
+                    <div class="text-6xl mb-4">${percentage >= 80 ? '🏆' : percentage >= 60 ? '🎉' : '💪'}</div>
+                    <h4 class="text-3xl font-bold mb-4">Game Complete!</h4>
+                    <p class="text-2xl mb-6">You scored ${games.math.score} out of 5 (${percentage}%)</p>
+                    <p class="text-lg text-gray-600 mb-8">${percentage >= 80 ? 'Excellent work!' : percentage >= 60 ? 'Good job!' : 'Keep practicing!'}</p>
+                    <button onclick="loadMathGame()" class="bg-green-500 hover:bg-green-600 text-white py-3 px-8 rounded-xl font-bold text-lg transition-all duration-300">Play Again</button>
+                </div>
+            `;
+        }
+
+        function loadWordGame() {
+            games.word.currentWord = 0;
+            games.word.score = 0;
+            showWordScramble();
+        }
+
+        function showWordScramble() {
+            const word = games.word.words[games.word.currentWord];
+            const scrambled = word.split('').sort(() => Math.random() - 0.5).join('');
+            
+            const content = document.getElementById('gameContent');
+            content.innerHTML = `
+                <div class="text-center">
+                    <div class="mb-6">
+                        <div class="text-4xl mb-4">📝</div>
+                        <h4 class="text-2xl font-bold mb-2">Word ${games.word.currentWord + 1} of ${games.word.words.length}</h4>
+                        <p class="text-lg text-gray-600">Score: ${games.word.score}/${games.word.words.length}</p>
+                    </div>
+                    <div class="mb-8">
+                        <p class="text-lg mb-4">Unscramble this word:</p>
+                        <p class="text-4xl font-bold mb-6 tracking-wider">${scrambled}</p>
+                        <input type="text" id="wordInput" placeholder="Type your answer..." class="text-2xl text-center border-2 border-gray-300 rounded-xl py-3 px-6 mb-6 w-full max-w-md mx-auto block" onkeypress="if(event.key==='Enter') checkWordAnswer()">
+                        <button onclick="checkWordAnswer()" class="bg-purple-500 hover:bg-purple-600 text-white py-3 px-8 rounded-xl font-bold text-lg transition-all duration-300">Submit Answer</button>
+                    </div>
+                </div>
+            `;
+            document.getElementById('wordInput').focus();
+        }
+
+        function checkWordAnswer() {
+            const input = document.getElementById('wordInput').value.toUpperCase();
+            const correct = games.word.words[games.word.currentWord];
+            
+            if(input === correct) {
+                games.word.score++;
+            }
+            
+            games.word.currentWord++;
+            
+            if(games.word.currentWord < games.word.words.length) {
+                setTimeout(() => {
+                    showWordScramble();
+                }, 1000);
+            } else {
+                showWordResults();
+            }
+        }
+
+        function showWordResults() {
+            const content = document.getElementById('gameContent');
+            const percentage = (games.word.score / games.word.words.length) * 100;
+            content.innerHTML = `
+                <div class="text-center">
+                    <div class="text-6xl mb-4">${percentage >= 80 ? '🏆' : percentage >= 60 ? '🎉' : '💪'}</div>
+                    <h4 class="text-3xl font-bold mb-4">Game Complete!</h4>
+                    <p class="text-2xl mb-6">You scored ${games.word.score} out of ${games.word.words.length} (${percentage}%)</p>
+                    <p class="text-lg text-gray-600 mb-8">${percentage >= 80 ? 'Amazing vocabulary!' : percentage >= 60 ? 'Well done!' : 'Keep learning new words!'}</p>
+                    <button onclick="loadWordGame()" class="bg-purple-500 hover:bg-purple-600 text-white py-3 px-8 rounded-xl font-bold text-lg transition-all duration-300">Play Again</button>
+                </div>
+            `;
+        }
+
+        function loadMemoryGame() {
+            games.memory.flipped = [];
+            games.memory.matched = [];
+            games.memory.moves = 0;
+            
+            const cards = [...games.memory.cards, ...games.memory.cards].sort(() => Math.random() - 0.5);
+            
+            const content = document.getElementById('gameContent');
+            content.innerHTML = `
+                <div class="text-center">
+                    <div class="mb-6">
+                        <div class="text-4xl mb-4">🧠</div>
+                        <h4 class="text-2xl font-bold mb-2">Memory Master</h4>
+                        <p class="text-lg text-gray-600">Moves: <span id="moveCounter">0</span></p>
+                    </div>
+                    <div class="grid grid-cols-4 gap-4 max-w-md mx-auto">
+                        ${cards.map((card, index) => 
+                            `<div onclick="flipCard(${index})" class="memory-card bg-blue-500 hover:bg-blue-600 w-16 h-16 rounded-xl flex items-center justify-center text-2xl cursor-pointer transition-all duration-300" data-card="${card}" id="card-${index}">
+                                <span class="card-back">?</span>
+                                <span class="card-front hidden">${card}</span>
+                            </div>`
+                        ).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function flipCard(index) {
+            if(games.memory.flipped.length >= 2 || games.memory.flipped.includes(index) || games.memory.matched.includes(index)) {
+                return;
+            }
+            
+            const card = document.getElementById(`card-${index}`);
+            const back = card.querySelector('.card-back');
+            const front = card.querySelector('.card-front');
+            
+            back.classList.add('hidden');
+            front.classList.remove('hidden');
+            games.memory.flipped.push(index);
+            
+            if(games.memory.flipped.length === 2) {
+                games.memory.moves++;
+                document.getElementById('moveCounter').textContent = games.memory.moves;
+                
+                const card1 = document.getElementById(`card-${games.memory.flipped[0]}`);
+                const card2 = document.getElementById(`card-${games.memory.flipped[1]}`);
+                
+                if(card1.dataset.card === card2.dataset.card) {
+                    games.memory.matched.push(...games.memory.flipped);
+                    games.memory.flipped = [];
+                    
+                    if(games.memory.matched.length === 16) {
+                        setTimeout(() => {
+                            showMemoryResults();
+                        }, 500);
+                    }
+                } else {
+                    setTimeout(() => {
+                        games.memory.flipped.forEach(cardIndex => {
+                            const card = document.getElementById(`card-${cardIndex}`);
+                            const back = card.querySelector('.card-back');
+                            const front = card.querySelector('.card-front');
+                            back.classList.remove('hidden');
+                            front.classList.add('hidden');
+                        });
+                        games.memory.flipped = [];
+                    }, 1000);
+                }
+            }
+        }
+
+        function showMemoryResults() {
+            const content = document.getElementById('gameContent');
+            content.innerHTML = `
+                <div class="text-center">
+                    <div class="text-6xl mb-4">🏆</div>
+                    <h4 class="text-3xl font-bold mb-4">Congratulations!</h4>
+                    <p class="text-2xl mb-6">You completed the game in ${games.memory.moves} moves!</p>
+                    <p class="text-lg text-gray-600 mb-8">${games.memory.moves <= 20 ? 'Excellent memory!' : games.memory.moves <= 30 ? 'Good job!' : 'Keep practicing!'}</p>
+                    <button onclick="loadMemoryGame()" class="bg-blue-500 hover:bg-blue-600 text-white py-3 px-8 rounded-xl font-bold text-lg transition-all duration-300">Play Again</button>
+                </div>
+            `;
+        }
+
+        function loadGeographyGame() {
+            games.geography.currentQuestion = 0;
+            games.geography.score = 0;
+            showGeographyQuestion();
+        }
+
+        function showGeographyQuestion() {
+            const question = games.geography.questions[games.geography.currentQuestion];
+            const content = document.getElementById('gameContent');
+            content.innerHTML = `
+                <div class="text-center">
+                    <div class="mb-6">
+                        <div class="text-4xl mb-4">🌍</div>
+                        <h4 class="text-2xl font-bold mb-2">Question ${games.geography.currentQuestion + 1} of ${games.geography.questions.length}</h4>
+                        <p class="text-lg text-gray-600">Score: ${games.geography.score}/${games.geography.questions.length}</p>
+                    </div>
+                    <div class="mb-8">
+                        <p class="text-2xl font-bold mb-6">${question.question}</p>
+                        <div class="grid grid-cols-1 gap-4 max-w-md mx-auto">
+                            ${question.options.map((option, index) => 
+                                `<button onclick="checkGeographyAnswer(${index})" class="bg-orange-500 hover:bg-orange-600 text-white py-3 px-6 rounded-xl font-bold text-lg transition-all duration-300">${option}</button>`
+                            ).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function checkGeographyAnswer(selected) {
+            const correct = games.geography.questions[games.geography.currentQuestion].correct;
+            if(selected === correct) {
+                games.geography.score++;
+            }
+            
+            games.geography.currentQuestion++;
+            
+            if(games.geography.currentQuestion < games.geography.questions.length) {
+                setTimeout(() => {
+                    showGeographyQuestion();
+                }, 1000);
+            } else {
+                showGeographyResults();
+            }
+        }
+
+        function showGeographyResults() {
+            const content = document.getElementById('gameContent');
+            const percentage = (games.geography.score / games.geography.questions.length) * 100;
+            content.innerHTML = `
+                <div class="text-center">
+                    <div class="text-6xl mb-4">${percentage >= 80 ? '🏆' : percentage >= 60 ? '🎉' : '💪'}</div>
+                    <h4 class="text-3xl font-bold mb-4">Game Complete!</h4>
+                    <p class="text-2xl mb-6">You scored ${games.geography.score} out of ${games.geography.questions.length} (${percentage}%)</p>
+                    <p class="text-lg text-gray-600 mb-8">${percentage >= 80 ? 'World explorer!' : percentage >= 60 ? 'Great knowledge!' : 'Keep exploring!'}</p>
+                    <button onclick="loadGeographyGame()" class="bg-orange-500 hover:bg-orange-600 text-white py-3 px-8 rounded-xl font-bold text-lg transition-all duration-300">Play Again</button>
+                </div>
+            `;
+        }
+
+        function loadScienceGame() {
+            games.science.currentQuestion = 0;
+            games.science.score = 0;
+            showScienceQuestion();
+        }
+
+        function showScienceQuestion() {
+            const question = games.science.questions[games.science.currentQuestion];
+            const content = document.getElementById('gameContent');
+            content.innerHTML = `
+                <div class="text-center">
+                    <div class="mb-6">
+                        <div class="text-4xl mb-4">🔬</div>
+                        <h4 class="text-2xl font-bold mb-2">Question ${games.science.currentQuestion + 1} of ${games.science.questions.length}</h4>
+                        <p class="text-lg text-gray-600">Score: ${games.science.score}/${games.science.questions.length}</p>
+                    </div>
+                    <div class="mb-8">
+                        <p class="text-2xl font-bold mb-6">${question.question}</p>
+                        <div class="grid grid-cols-1 gap-4 max-w-md mx-auto">
+                            ${question.options.map((option, index) => 
+                                `<button onclick="checkScienceAnswer(${index})" class="bg-teal-500 hover:bg-teal-600 text-white py-3 px-6 rounded-xl font-bold text-lg transition-all duration-300">${option}</button>`
+                            ).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function checkScienceAnswer(selected) {
+            const correct = games.science.questions[games.science.currentQuestion].correct;
+            if(selected === correct) {
+                games.science.score++;
+            }
+            
+            games.science.currentQuestion++;
+            
+            if(games.science.currentQuestion < games.science.questions.length) {
+                setTimeout(() => {
+                    showScienceQuestion();
+                }, 1000);
+            } else {
+                showScienceResults();
+            }
+        }
+
+        function showScienceResults() {
+            const content = document.getElementById('gameContent');
+            const percentage = (games.science.score / games.science.questions.length) * 100;
+            content.innerHTML = `
+                <div class="text-center">
+                    <div class="text-6xl mb-4">${percentage >= 80 ? '🏆' : percentage >= 60 ? '🎉' : '💪'}</div>
+                    <h4 class="text-3xl font-bold mb-4">Game Complete!</h4>
+                    <p class="text-2xl mb-6">You scored ${games.science.score} out of ${games.science.questions.length} (${percentage}%)</p>
+                    <p class="text-lg text-gray-600 mb-8">${percentage >= 80 ? 'Future scientist!' : percentage >= 60 ? 'Great discoveries!' : 'Keep experimenting!'}</p>
+                    <button onclick="loadScienceGame()" class="bg-teal-500 hover:bg-teal-600 text-white py-3 px-8 rounded-xl font-bold text-lg transition-all duration-300">Play Again</button>
+                </div>
+            `;
+        }
+
+        function loadTypingGame() {
+            games.typing.currentText = 0;
+            games.typing.startTime = null;
+            showTypingChallenge();
+        }
+
+        function showTypingChallenge() {
+            const text = games.typing.texts[games.typing.currentText];
+            const content = document.getElementById('gameContent');
+            content.innerHTML = `
+                <div class="text-center">
+                    <div class="mb-6">
+                        <div class="text-4xl mb-4">⌨️</div>
+                        <h4 class="text-2xl font-bold mb-2">Typing Challenge ${games.typing.currentText + 1}</h4>
+                        <p class="text-lg text-gray-600">Type the text below as fast and accurately as you can!</p>
+                    </div>
+                    <div class="mb-8">
+                        <div class="bg-gray-100 p-6 rounded-xl mb-6">
+                            <p class="text-xl font-mono" id="targetText">${text}</p>
+                        </div>
+                        <textarea id="typingInput" placeholder="Start typing here..." class="w-full h-32 text-lg border-2 border-gray-300 rounded-xl p-4 font-mono resize-none" oninput="checkTyping()" onkeydown="startTypingTimer()"></textarea>
+                        <div class="mt-4 flex justify-center space-x-8">
+                            <div class="text-center">
+                                <p class="text-sm text-gray-600">WPM</p>
+                                <p class="text-2xl font-bold" id="wpmDisplay">0</p>
+                            </div>
+                            <div class="text-center">
+                                <p class="text-sm text-gray-600">Accuracy</p>
+                                <p class="text-2xl font-bold" id="accuracyDisplay">100%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('typingInput').focus();
+        }
+
+        function startTypingTimer() {
+            if(!games.typing.startTime) {
+                games.typing.startTime = Date.now();
+            }
+        }
+
+        function checkTyping() {
+            const input = document.getElementById('typingInput').value;
+            const target = games.typing.texts[games.typing.currentText];
+            
+            if(games.typing.startTime) {
+                const timeElapsed = (Date.now() - games.typing.startTime) / 1000 / 60; // minutes
+                const wordsTyped = input.split(' ').length;
+                const wpm = Math.round(wordsTyped / timeElapsed) || 0;
+                
+                let correctChars = 0;
+                for(let i = 0; i < input.length; i++) {
+                    if(input[i] === target[i]) {
+                        correctChars++;
+                    }
+                }
+                const accuracy = input.length > 0 ? Math.round((correctChars / input.length) * 100) : 100;
+                
+                document.getElementById('wpmDisplay').textContent = wpm;
+                document.getElementById('accuracyDisplay').textContent = accuracy + '%';
+                
+                if(input === target) {
+                    showTypingResults(wpm, accuracy);
+                }
+            }
+        }
+
+        function showTypingResults(wpm, accuracy) {
+            const content = document.getElementById('gameContent');
+            content.innerHTML = `
+                <div class="text-center">
+                    <div class="text-6xl mb-4">${wpm >= 40 ? '🏆' : wpm >= 25 ? '🎉' : '💪'}</div>
+                    <h4 class="text-3xl font-bold mb-4">Great Job!</h4>
+                    <div class="grid grid-cols-2 gap-8 max-w-md mx-auto mb-8">
+                        <div class="text-center">
+                            <p class="text-sm text-gray-600">Words Per Minute</p>
+                            <p class="text-4xl font-bold text-blue-600">${wpm}</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-sm text-gray-600">Accuracy</p>
+                            <p class="text-4xl font-bold text-green-600">${accuracy}%</p>
+                        </div>
+                    </div>
+                    <p class="text-lg text-gray-600 mb-8">${wpm >= 40 ? 'Lightning fast!' : wpm >= 25 ? 'Good speed!' : 'Keep practicing!'}</p>
+                    <button onclick="loadTypingGame()" class="bg-indigo-500 hover:bg-indigo-600 text-white py-3 px-8 rounded-xl font-bold text-lg transition-all duration-300">Try Again</button>
+                </div>
+            `;
+        }
+
+        function loadColorGame() {
+            games.color.currentQuestion = 0;
+            games.color.score = 0;
+            showColorQuestion();
+        }
+
+        function showColorQuestion() {
+            const question = games.color.questions[games.color.currentQuestion];
+            const content = document.getElementById('gameContent');
+            content.innerHTML = `
+                <div class="text-center">
+                    <div class="mb-6">
+                        <div class="text-4xl mb-4">🎨</div>
+                        <h4 class="text-2xl font-bold mb-2">Question ${games.color.currentQuestion + 1} of ${games.color.questions.length}</h4>
+                        <p class="text-lg text-gray-600">Score: ${games.color.score}/${games.color.questions.length}</p>
+                    </div>
+                    <div class="mb-8">
+                        <p class="text-2xl font-bold mb-6">${question.question}</p>
+                        <div class="grid grid-cols-1 gap-4 max-w-md mx-auto">
+                            ${question.options.map((option, index) => 
+                                `<button onclick="checkColorAnswer(${index})" class="bg-pink-500 hover:bg-pink-600 text-white py-3 px-6 rounded-xl font-bold text-lg transition-all duration-300">${option}</button>`
+                            ).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function checkColorAnswer(selected) {
+            const correct = games.color.questions[games.color.currentQuestion].correct;
+            const isCorrect = selected === correct;
+            
+            // Show feedback
+            const buttons = document.querySelectorAll('#gameContent button');
+            buttons.forEach((btn, index) => {
+                if(index === selected) {
+                    btn.className = isCorrect ? 
+                        'bg-green-500 text-white py-3 px-6 rounded-xl font-bold text-lg transition-all duration-300' :
+                        'bg-red-500 text-white py-3 px-6 rounded-xl font-bold text-lg transition-all duration-300';
+                } else if(index === correct) {
+                    btn.className = 'bg-green-500 text-white py-3 px-6 rounded-xl font-bold text-lg transition-all duration-300';
+                }
+                btn.disabled = true;
+            });
+            
+            if(isCorrect) {
+                games.color.score++;
+            }
+            
+            games.color.currentQuestion++;
+            
+            setTimeout(() => {
+                if(games.color.currentQuestion < games.color.questions.length) {
+                    showColorQuestion();
+                } else {
+                    showColorResults();
+                }
+            }, 1500);
+        }
+
+        function showColorResults() {
+            const content = document.getElementById('gameContent');
+            const percentage = (games.color.score / games.color.questions.length) * 100;
+            content.innerHTML = `
+                <div class="text-center">
+                    <div class="text-6xl mb-4">${percentage >= 80 ? '🏆' : percentage >= 60 ? '🎉' : '💪'}</div>
+                    <h4 class="text-3xl font-bold mb-4">Game Complete!</h4>
+                    <p class="text-2xl mb-6">You scored ${games.color.score} out of ${games.color.questions.length} (${percentage}%)</p>
+                    <p class="text-lg text-gray-600 mb-8">${percentage >= 80 ? 'Color expert!' : percentage >= 60 ? 'Great eye for colors!' : 'Keep learning about colors!'}</p>
+                    <button onclick="loadColorGame()" class="bg-pink-500 hover:bg-pink-600 text-white py-3 px-8 rounded-xl font-bold text-lg transition-all duration-300">Play Again</button>
+                </div>
+            `;
+        }
+
+        function loadPatternGame() {
+            games.pattern.currentQuestion = 0;
+            games.pattern.score = 0;
+            showPatternQuestion();
+        }
+
+        function showPatternQuestion() {
+            const question = games.pattern.questions[games.pattern.currentQuestion];
+            const content = document.getElementById('gameContent');
+            content.innerHTML = `
+                <div class="text-center">
+                    <div class="mb-6">
+                        <div class="text-4xl mb-4">🔢</div>
+                        <h4 class="text-2xl font-bold mb-2">Question ${games.pattern.currentQuestion + 1} of ${games.pattern.questions.length}</h4>
+                        <p class="text-lg text-gray-600">Score: ${games.pattern.score}/${games.pattern.questions.length}</p>
+                    </div>
+                    <div class="mb-8">
+                        <p class="text-2xl font-bold mb-6">${question.question}</p>
+                        <div class="grid grid-cols-2 gap-4 max-w-md mx-auto">
+                            ${question.options.map((option, index) => 
+                                `<button onclick="checkPatternAnswer(${index})" class="bg-yellow-500 hover:bg-yellow-600 text-white py-3 px-6 rounded-xl font-bold text-lg transition-all duration-300">${option}</button>`
+                            ).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function checkPatternAnswer(selected) {
+            const correct = games.pattern.questions[games.pattern.currentQuestion].correct;
+            const isCorrect = selected === correct;
+            
+            // Show feedback
+            const buttons = document.querySelectorAll('#gameContent button');
+            buttons.forEach((btn, index) => {
+                if(index === selected) {
+                    btn.className = isCorrect ? 
+                        'bg-green-500 text-white py-3 px-6 rounded-xl font-bold text-lg transition-all duration-300' :
+                        'bg-red-500 text-white py-3 px-6 rounded-xl font-bold text-lg transition-all duration-300';
+                } else if(index === correct) {
+                    btn.className = 'bg-green-500 text-white py-3 px-6 rounded-xl font-bold text-lg transition-all duration-300';
+                }
+                btn.disabled = true;
+            });
+            
+            if(isCorrect) {
+                games.pattern.score++;
+            }
+            
+            games.pattern.currentQuestion++;
+            
+            setTimeout(() => {
+                if(games.pattern.currentQuestion < games.pattern.questions.length) {
+                    showPatternQuestion();
+                } else {
+                    showPatternResults();
+                }
+            }, 1500);
+        }
+
+        function showPatternResults() {
+            const content = document.getElementById('gameContent');
+            const percentage = (games.pattern.score / games.pattern.questions.length) * 100;
+            content.innerHTML = `
+                <div class="text-center">
+                    <div class="text-6xl mb-4">${percentage >= 80 ? '🏆' : percentage >= 60 ? '🎉' : '💪'}</div>
+                    <h4 class="text-3xl font-bold mb-4">Game Complete!</h4>
+                    <p class="text-2xl mb-6">You scored ${games.pattern.score} out of ${games.pattern.questions.length} (${percentage}%)</p>
+                    <p class="text-lg text-gray-600 mb-8">${percentage >= 80 ? 'Pattern master!' : percentage >= 60 ? 'Great detective work!' : 'Keep practicing patterns!'}</p>
+                    <button onclick="loadPatternGame()" class="bg-yellow-500 hover:bg-yellow-600 text-white py-3 px-8 rounded-xl font-bold text-lg transition-all duration-300">Play Again</button>
+                </div>
+            `;
+        }
+
+        function loadAnimalGame() {
+            games.animal.currentQuestion = 0;
+            games.animal.score = 0;
+            showAnimalQuestion();
+        }
+
+        function showAnimalQuestion() {
+            const question = games.animal.questions[games.animal.currentQuestion];
+            const content = document.getElementById('gameContent');
+            content.innerHTML = `
+                <div class="text-center">
+                    <div class="mb-6">
+                        <div class="text-4xl mb-4">🦁</div>
+                        <h4 class="text-2xl font-bold mb-2">Question ${games.animal.currentQuestion + 1} of ${games.animal.questions.length}</h4>
+                        <p class="text-lg text-gray-600">Score: ${games.animal.score}/${games.animal.questions.length}</p>
+                    </div>
+                    <div class="mb-8">
+                        <p class="text-2xl font-bold mb-6">${question.question}</p>
+                        <div class="grid grid-cols-1 gap-4 max-w-md mx-auto">
+                            ${question.options.map((option, index) => 
+                                `<button onclick="checkAnimalAnswer(${index})" class="bg-emerald-500 hover:bg-emerald-600 text-white py-3 px-6 rounded-xl font-bold text-lg transition-all duration-300">${option}</button>`
+                            ).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function checkAnimalAnswer(selected) {
+            const correct = games.animal.questions[games.animal.currentQuestion].correct;
+            const isCorrect = selected === correct;
+            
+            // Show feedback
+            const buttons = document.querySelectorAll('#gameContent button');
+            buttons.forEach((btn, index) => {
+                if(index === selected) {
+                    btn.className = isCorrect ? 
+                        'bg-green-500 text-white py-3 px-6 rounded-xl font-bold text-lg transition-all duration-300' :
+                        'bg-red-500 text-white py-3 px-6 rounded-xl font-bold text-lg transition-all duration-300';
+                } else if(index === correct) {
+                    btn.className = 'bg-green-500 text-white py-3 px-6 rounded-xl font-bold text-lg transition-all duration-300';
+                }
+                btn.disabled = true;
+            });
+            
+            if(isCorrect) {
+                games.animal.score++;
+            }
+            
+            games.animal.currentQuestion++;
+            
+            setTimeout(() => {
+                if(games.animal.currentQuestion < games.animal.questions.length) {
+                    showAnimalQuestion();
+                } else {
+                    showAnimalResults();
+                }
+            }, 1500);
+        }
+
+        function showAnimalResults() {
+            const content = document.getElementById('gameContent');
+            const percentage = (games.animal.score / games.animal.questions.length) * 100;
+            content.innerHTML = `
+                <div class="text-center">
+                    <div class="text-6xl mb-4">${percentage >= 80 ? '🏆' : percentage >= 60 ? '🎉' : '💪'}</div>
+                    <h4 class="text-3xl font-bold mb-4">Game Complete!</h4>
+                    <p class="text-2xl mb-6">You scored ${games.animal.score} out of ${games.animal.questions.length} (${percentage}%)</p>
+                    <p class="text-lg text-gray-600 mb-8">${percentage >= 80 ? 'Animal expert!' : percentage >= 60 ? 'Great animal knowledge!' : 'Keep learning about animals!'}</p>
+                    <button onclick="loadAnimalGame()" class="bg-emerald-500 hover:bg-emerald-600 text-white py-3 px-8 rounded-xl font-bold text-lg transition-all duration-300">Play Again</button>
+                </div>
+            `;
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('gameModal').addEventListener('click', function(e) {
+            if(e.target === this) {
+                closeGame();
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'974abb90f2fd403a',t:'MTc1NjEyMTE2OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
